@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  /* Official shuunn Brand Palette & State Tokens */
+  --bg: #0B1220;            /* App background (Midnight Navy) */
+  --surface: #10192D;       /* Panels, rows, containers */
+  --surface-hover: #16223D; /* Hovered rows, elevated items */
+  --deep-blue: #2D3A8C;     /* Deep Blue secondary / borders */
+  --line: rgba(255, 255, 255, 0.08); /* Borders and dividers */
+  --text: #E6E9FF;          /* High contrast text */
+  --text-muted: #A7B8FF;    /* Secondary / metadata text */
+  --accent: #6B8CFF;        /* Periwinkle Accent (Brand Primary Blue) */
+  --accent-hover: #5A7BEF;
+  --lavender: #C7D2FE;      /* Lavender accent */
+  --peach: #FFB86B;         /* Peach accent */
+  --success: #10b981;       /* Completed downloads, active status */
+  --danger: #ef4444;        /* Errors, cancellations */
+
+  /* Shape Tokens */
+  --radius-control: 4px;    /* Buttons, inputs, badges */
+  --radius-panel: 8px;      /* Dialogs, popovers, contextual menus */
+
+  /* Type */
+  --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Elevation */
+  --shadow-floating: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] {
+  --bg: #F4F6FB;
+  --surface: #FFFFFF;
+  --surface-hover: #EAEFF9;
+  --deep-blue: #1E2865;
+  --line: rgba(0, 0, 0, 0.08);
+  --text: #0B1220;
+  --text-muted: #5A6A85;
+  --accent: #2D5BFF;
+  --accent-hover: #1E46D9;
+  --lavender: #4A55A2;
+  --peach: #E0822D;
+  --success: #059669;
+  --danger: #DC2626;
+  --shadow-floating: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+@theme {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-deep-blue: var(--deep-blue);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-lavender: var(--lavender);
+  --color-peach: var(--peach);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+
+  --radius-control: var(--radius-control);
+  --radius-panel: var(--radius-panel);
+
+  --shadow-floating: var(--shadow-floating);
+}
+
+/* Custom desktop scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 184, 255, 0.15);
+  border-radius: var(--radius-control);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 125, 255, 0.4);
+}
+
+/* Base resets for desktop app feel */
+* {
+  box-sizing: border-box;
+}
+
+button, [role="button"], select {
+  cursor: pointer;
+}
+
+button:disabled, [role="button"][aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Drag regions for seamless titlebar */
+.app-drag-region {
+  -webkit-app-region: drag;
+}
+
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
